@@ -17,7 +17,7 @@ struct Counter {
     count: u32,
 }
 
-entrypoint!(counter_contract);
+entrypoint!(counter_contract);   
 
 pub fn counter_contract(
     program_id: &Pubkey,
@@ -25,10 +25,10 @@ pub fn counter_contract(
     instruction_data: &[u8],
 ) -> ProgramResult {
     let acc = next_account_info(&mut accounts.iter())?;
- 
+  
     let mut counter_data = Counter::try_from_slice(&acc.data.borrow())?;
     let instruction_type = InstructionType::try_from_slice(instruction_data)?;
-
+ 
     match instruction_type {
         InstructionType::Increment(value) => {
             counter_data.count += value;
