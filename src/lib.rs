@@ -17,7 +17,7 @@ enum InstructionType {
 struct Counter{
     count:u32
 }
-
+    
 entrypoint!(counter_contract);
 
 pub fn counter_contract(
